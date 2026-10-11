@@ -139,7 +139,7 @@ a{color:inherit}
 .hero .date{font:900 clamp(26px,7.4vw,34px)/1.2 var(--f-caps);letter-spacing:.14em;color:var(--gold-d);margin-top:2px;padding-left:.14em}
 .names{display:flex;flex-direction:column;align-items:center;margin-top:12px;font:700 clamp(68px,20vw,104px)/.95 var(--f-script);color:var(--maroon)}
 .names .amp{font-size:clamp(46px,13vw,64px);margin:2px 0 -4px}
-.hero .couple{margin-top:auto;height:min(40svh,380px);width:auto;max-width:92%;object-fit:contain;filter:drop-shadow(0 12px 12px rgba(94,40,40,.2));position:relative;z-index:3}
+.hero .couple{margin-top:auto;height:min(35svh,380px);width:auto;max-width:92%;object-fit:contain;filter:drop-shadow(0 12px 12px rgba(94,40,40,.2));position:relative;z-index:3}
 .cue{position:relative;z-index:4;display:flex;flex-direction:column;align-items:center;gap:0;margin:6px 0 14px;font:700 17px/1.2 var(--f-caps);letter-spacing:.16em;text-transform:uppercase;color:var(--gold-d);text-decoration:none}
 .cue svg{width:30px;height:30px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;animation:bob 1.7s ease-in-out infinite}
 @keyframes bob{0%,100%{transform:translateY(-3px)}50%{transform:translateY(6px)}}
@@ -233,7 +233,37 @@ footer p:not(.h-script){font:700 16px/1.6 var(--f-caps);letter-spacing:.16em;tex
   .js .rv{opacity:1;transform:none}
   #petals{display:none}
 }
-@media (max-width:360px){body{font-size:18px}.tl li{grid-template-columns:96px 40px 1fr}.tl::before{left:calc(96px + 20px - 1px)}.tl time{font-size:21px}}
+#app{overflow-wrap:break-word}
+.btn{text-align:center}
+@media (max-width:420px){
+  .sec{padding-left:20px;padding-right:20px}
+  .hero{padding-top:104px}
+  .hero .fl{width:176px}
+  .sec .fl{width:176px}
+  .fl-tr{top:-60px;right:-84px}.fl-tl{top:-60px;left:-84px}.fl-bl{bottom:-84px;left:-88px}.fl-br{bottom:-84px;right:-88px}
+  .btn{padding:0 18px;letter-spacing:.05em;font-size:16px;gap:.5em}
+  .btn svg{width:22px;height:22px}
+  /* countdown: 2 x 2 so every box has room */
+  .cd{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+  .cd-b{padding:16px 6px 12px}
+  .cd-b b{font-size:clamp(42px,13vw,52px)}
+  .cd-b span{font-size:14px;letter-spacing:.08em}
+  /* schedule: marker on the left, time and event stacked on the right */
+  .tl::before{left:21px}
+  .tl li{grid-template-columns:44px minmax(0,1fr);column-gap:14px;margin-bottom:38px}
+  .tl li .mk{grid-column:1;grid-row:1 / span 2}
+  .tl li time{grid-column:2;grid-row:1;text-align:left;padding-top:2px;font-size:22px}
+  .tl li time small{display:inline;margin:0 0 0 .5em;font-size:14px}
+  .tl li>div{grid-column:2;grid-row:2}
+  .tl h3{padding-top:2px;font-size:22px}
+  .venue{padding:26px 16px 22px}
+  form{padding:22px 16px 20px}
+  footer{padding-bottom:calc(104px + env(safe-area-inset-bottom))}
+}
+@media (max-width:360px){body{font-size:18px}.lead,.venue .place,.addr{font-size:18px}.verse{font-size:19px}}
+@media (max-height:700px){.hero .couple{height:min(30svh,300px)}}
+@media (max-height:620px){.hero{padding-top:92px}.names{font-size:clamp(52px,16vw,70px)}.hero .sub{font-size:34px}.hero .couple{height:27svh}}
+footer{padding-bottom:calc(100px + env(safe-area-inset-bottom))}
 </style>
 </head>
 <body>
@@ -244,7 +274,6 @@ footer p:not(.h-script){font:700 16px/1.6 var(--f-caps);letter-spacing:.16em;tex
   <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></symbol>
   <symbol id="i-wa" viewBox="0 0 24 24"><path d="M3 21l1.6-4.6A9 9 0 1 1 8 19.6L3 21z"/><path d="M9 8.8c0 3.2 2.6 5.8 5.8 5.8l1.3-1.5-2.1-1-1 .9a4.2 4.2 0 0 1-1.9-1.9l.9-1-1-2.1-2 .8z"/></symbol>
   <symbol id="i-cal" viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15" rx="2"/><path d="M3.5 10h17M8 3v4M16 3v4"/></symbol>
-  <symbol id="i-share" viewBox="0 0 24 24"><circle cx="6" cy="12" r="2.4"/><circle cx="17.5" cy="6" r="2.4"/><circle cx="17.5" cy="18" r="2.4"/><path d="M8.2 10.9l7.1-3.7M8.2 13.1l7.1 3.7"/></symbol>
   <symbol id="i-music" viewBox="0 0 24 24"><path d="M9 18V6l10-2v12"/><circle cx="6.5" cy="18" r="2.5"/><circle cx="16.5" cy="16" r="2.5"/></symbol>
   <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20s-7.5-4.6-7.5-10A4.2 4.2 0 0 1 12 7.7 4.2 4.2 0 0 1 19.5 10c0 5.4-7.5 10-7.5 10z" fill="currentColor"/></symbol>
   <symbol id="i-down" viewBox="0 0 24 24"><path d="M5 9l7 7 7-7"/></symbol>
@@ -433,7 +462,6 @@ footer p:not(.h-script){font:700 16px/1.6 var(--f-caps);letter-spacing:.16em;tex
     <p class="date-line rv" style="margin-top:6px">Wednesday, <span class="num">18</span> November <span class="num">2026</span></p>
     <div class="btn-row rv" style="margin-top:26px">
       <button class="btn btn-main" id="b-ics" type="button"><svg viewBox="0 0 24 24"><use href="#i-cal"/></svg> Add to Calendar</button>
-      <button class="btn" id="b-share" type="button"><svg viewBox="0 0 24 24"><use href="#i-share"/></svg> Share Invitation</button>
     </div>
     <img class="couple rv z" loading="lazy" src="assets/img/couple6.webp" alt="Couple hugging with a bouquet" width="700" height="1000">
     <p class="verse rv" style="margin-top:34px">&ldquo;Marriage is honorable in all.&rdquo;<cite>Hebrews <span class="num">13:4</span></cite></p>
@@ -579,14 +607,6 @@ $("#b-ics").addEventListener("click", () => {
   const ics = ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//Sanjay and Aakansha//Wedding//EN", "CALSCALE:GREGORIAN", ...ev, "END:VCALENDAR"].join("\r\n");
   const a = document.createElement("a"); a.href = URL.createObjectURL(new Blob([ics], { type: "text/calendar" })); a.download = "Sanjay-Aakansha-Wedding.ics";
   document.body.appendChild(a); a.click(); a.remove(); toast("Calendar file saved. Open it to add the dates.");
-});
-
-/* share */
-$("#b-share").addEventListener("click", async () => {
-  const text = `You are invited to the wedding of ${CFG.groom} & ${CFG.bride}. Wednesday, 18 November 2026, Ratlam (M.P.).`;
-  const url = location.href.split("?")[0];
-  if (navigator.share) { try { await navigator.share({ title: "Wedding Invitation", text, url }); return; } catch (e) { if (e.name === "AbortError") return; } }
-  window.open(`https://wa.me/?text=${encodeURIComponent(text + " " + url)}`, "_blank", "noopener");
 });
 </script>
 </body>
